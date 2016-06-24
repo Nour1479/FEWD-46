@@ -8,7 +8,7 @@
         <img src="acme-corp.jpg" alt-"Acme picture" width=20%>
         <nav>
           <li>Products</li>
-          <li><button>Sign Up</button></li>
+          <li><a class="button" href="#">Sign Up</a></li>
         </nav>
       </header>
 
@@ -38,23 +38,31 @@
     display: block;
     padding:10px;
     margin:-10px;
+    overflow:auto;
     }
 
     nav{
       float:right;
+      margin-right:20px;
     }
 
     li{
       float:left;
       list-style:none;
-      margin-top:40px;
-      margin-left:10px;
+      margin: 0 auto;
+      margin-top:25px;
+
     }
 
-    button{
-      background-color:blue;
-      font-size:10px;
-      padding:10px;
+    .button{
+      background-color:rgb(51,60,181);
+      color:white;
+      margin-left:20px;
+      margin-right:20px;
+      padding:13px;
+      text-decoration:none;
+      border-radius:10px;
+      box-shadow:5px;
     }
 
     body{
@@ -80,8 +88,9 @@
 
     footer{
       text-align:center;
-      font-size:-20px;
-      margin: 0 auto;
+      font-size:10px;
+      margin: 0;
+      color:rgb(153,154,157)
     }
 
 
