@@ -1,0 +1,57 @@
+.form-row{
+margin:15px;
+margin-left:0px;
+}
+
+label{
+  margin-right:25px;
+  display: inline-block;
+  width:7em;
+  cursor:pointer;
+}
+
+input{
+  width:250px;
+  border: 0.25px solid red;
+}
+
+input:hover{
+  border-color:blue;
+}
+
+input[type=checkbox]{
+  width:20px;
+}
+
+input[placeholder] {
+  text-overflow: ellipsis;
+}
+
+input[type=text]{
+  padding:5px;
+}
+
+.button{
+  margin-left:0px;
+}
+
+.button-body{
+  padding:0px;
+  background-color:transparent;
+  margin-left:0px;
+  margin-top:10px;
+}
+input:select{
+  background-color:green;
+}
+
+
+nav li{
+  margin-left:20px;
+  margin-right:0px;
+  text-shadow: 0.75px 0.75px black;
+}
+
+hr{
+  width:80%
+}
