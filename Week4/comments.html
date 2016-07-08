@@ -5,14 +5,14 @@
 
 var comment = document.querySelector("#input1")
 var button = document.querySelector("button");
+var body = document.querySelector("body");
 
 button.addEventListener("click", sayIt);
 
 function sayIt(){
   var divX = document.createElement("div");
   divX.textContent = comment.value;
-  var body = document.querySelector("body");
-  body.appendChild(divX) 
+  body.appendChild(divX)
 
 }
 
