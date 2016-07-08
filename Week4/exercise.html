@@ -1,0 +1,32 @@
+
+<input type="text" id="input1" value="">
+<input type="text" id="input2" value="">
+<button type="button">Add</button>
+
+<p>
+</p>
+
+
+<script>
+
+//var a = prompt("what is the first number?");
+//var b = prompt("what is the secomd number?");
+//var a1 = parseInt(a);
+//var b1 = parseInt(b);
+//alert(a1+b1);
+
+
+var i1 = document.querySelector("#input1")
+var i2 = document.querySelector("#input2")
+var button = document.querySelector("button")
+var p = document.querySelector("p")
+
+function add(){
+  var n = parseInt(i1.value)
+  var m = parseInt(i2.value)
+  p.textContent = n+m;
+}
+
+button.addEventListener("click",add)
+
+</script>

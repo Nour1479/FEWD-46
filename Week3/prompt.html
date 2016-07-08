@@ -1,0 +1,29 @@
+
+<input type="text" name="first name" value="" placeholder="John" class="first-name">
+<input type="text" name="first name" value="" placeholder="Smith" class="last-name">
+<button>say hey</button>
+
+<p>
+
+</p>
+
+<script type="text/javascript">
+//var firstName = prompt("what is your first name?")
+//var lastName = prompt("What is your last name?")
+//alert("Hello " + firstName + " " + lastName + "!")
+//var welcome = document.querySelector("p");
+//var newText = "Hello " + firstName + " " + lastName + "!";
+//welcome.textContent = newText;
+
+var input1 = document.querySelector(".first-name")
+var input2 = document.querySelector(".last-name")
+var button = document.querySelector("button")
+var p = document.querySelector("p")
+
+function sayHey () {
+  var newText = "Hello " + input1.value + " " + input2.value + "!";
+  p.textContent = newText;
+}
+button.addEventListener("click",sayHey)
+
+</script>
