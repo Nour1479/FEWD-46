@@ -9,7 +9,7 @@ li{
   margin-bottom:15px;
 }
 
-.products p{
+p{
   margin-bottom:25px;
   margin-top:auto;
 }
@@ -32,11 +32,4 @@ li{
   border-radius:10px;
   box-shadow:5px;
   border:1px solid blue;
-}
-
-nav li{
-  margin-left:20px;
-  margin-right:0px;
-  margin-top:30px;
-  text-shadow: 0.75px 0.75px black;
 }
