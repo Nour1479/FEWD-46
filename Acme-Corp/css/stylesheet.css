@@ -2,7 +2,7 @@ header{
 background-color: #c4c4c4;
 font-family: Lucida Grande;
 display: block;
-padding:10px;
+padding:1px;
 margin:-10px;
 overflow:auto;
 }
@@ -69,7 +69,7 @@ hr{
 }
 
 nav li{
-  margin-left:20px;
+  margin-left:0px;
   margin-right:0px;
   margin-top:30px;
   text-shadow: 0.75px 0.75px black;
