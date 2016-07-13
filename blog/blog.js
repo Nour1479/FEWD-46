@@ -1,26 +1,26 @@
+//Declare a variable representing the like link
 var link = document.querySelector(".like-link");
+//Declare a variable representing the like count
 var likeCount = document.querySelector(".like-count");
+//Declare a variable representing the new comment
 var form = document.querySelector("#new-comment");
+//Declare a variable for the 
 var commentBody = document.querySelector("#new-comment-body");
 
 link.addEventListener("click", like);
 form.addEventListener("submit", createComment);
 
 function like(event) {
-    event.preventDefault();
-    var count = parseInt(likeCount.textContent);
-    likeCount.textContent = count+1;
-  // Your code for like goes here
+  event.preventDefault();
+  var count = parseInt(likeCount.textContent);
+  likeCount.textContent = count+1;
 }
 
 function createComment(event) {
   event.preventDefault();
   var commentX = document.createElement("div");
   commentX.textContent = commentBody.value;
-
   commentX.classList.add("comment");
-
   comments.appendChild(commentX);
-  // Your code for comments goes here
-  form.reset()
+  form.reset();
 }
