@@ -1,7 +1,5 @@
 var form = document.querySelector("#new-item-form");
 var formInput = document.querySelector("#new-item-input");
-var button = document.querySelector("button");
-var body = document.querySelector("body");
 var unorderList = document.querySelector("#todo-list");
 
 function formSubmitted(event) {
@@ -14,11 +12,12 @@ function formSubmitted(event) {
   //listItem.setAttribute("id","todo-list li");
   checkbox.setAttribute("type","checkbox")
   span.textContent = formInput.value;
-
-  unorderList.appendChild(checkbox);
-  unorderList.appendChild(label);
-  unorderList.appendChild(span);
+  label.appendChild(checkbox);
+  label.appendChild(span);
+  listItem.appendChild(label);
   unorderList.appendChild(listItem);
+
+
   form.reset();
 }
 
