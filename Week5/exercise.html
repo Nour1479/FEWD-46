@@ -1,0 +1,38 @@
+<p>
+  There are <span id="count">0</span> students in the class:
+</p>
+
+<ol>
+</ol>
+
+<script>
+var students = [
+  "Aziza",
+  "Christine",
+  "Elisa",
+  "Gabriel",
+  "Jake",
+  "Megan",
+  "Nadine",
+  "Nour",
+  "Paige",
+  "SoRa",
+  "Tiana"
+];
+</script>
+
+<script>
+
+function addStudent (student){
+  var li = document.createElement("li")
+  ol = document.querySelector("ol").appendChild(li)
+  li.textContent = student;
+
+}
+
+students.forEach(addStudent)
+
+document.querySelector("#count").textContent = students.length;
+
+
+</script>
