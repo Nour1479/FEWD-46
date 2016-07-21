@@ -9,16 +9,15 @@ function formSubmitted(event) {
   var span = document.createElement("span");
   var label = document.createElement("label");
 
-  //listItem.setAttribute("id","todo-list li");
   checkbox.setAttribute("type","checkbox")
   span.textContent = formInput.value;
+
   label.appendChild(checkbox);
   label.appendChild(span);
   listItem.appendChild(label);
   unorderList.appendChild(listItem);
 
-
   form.reset();
-}
+  }
 
 form.addEventListener("submit", formSubmitted);

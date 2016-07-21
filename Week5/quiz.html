@@ -1,0 +1,63 @@
+<!--<style>
+.hidden { display: none !important; }
+.rounded-box { border: 1px solid black; border-radius: 5px; }
+</style>
+
+<button type="button" id="start">Button</button>
+
+<div id="welcome" class="hidden rounded-box">
+  Welcome!
+</div>
+
+<script>
+var button = document.querySelector("start");
+function start() {
+document.querySelector("welcome").removeAttribute("class");
+button.addEventListener("click", start); }
+</script>
+!-->
+
+<!--start needs a #, and use classList.remove instead of removeAttribute, and event listener is
+INSIDE the event handler!-->
+
+<!--
+1. Describe what this program is attempting to do.
+2. There are three reasons this program won't work.
+   What are they?
+3. If you fixed the show-stoppers, this program
+   still wouldn't work right in certain browsers.
+   How can we fix that?
+-->
+
+<!--
+<form>
+  <label>
+    Fahrenheit:
+    <input type="number" id="f">
+  </label>
+  <input type="submit" value="Convert">
+</form>
+
+<p>
+  Celcius: <span id="c"></span>
+</p>
+
+<script>
+function fToC() {
+  (f - 32) * 5/9;
+}
+function convert() {
+  event.preventDefault();
+
+  var input = document.querySelector("#f");
+  var output = document.querySelector("#c");
+  output.value = fToC(input.value);
+}
+document.querySelector("form").addEventListener("submit", convert);
+</script>
+!-->
+
+<!--need to add parseFloat
+and change output.value to span.textContent
+We didn't set up our arguments
+Convert is an event handler. The () is missing 'event'
