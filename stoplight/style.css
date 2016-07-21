@@ -1,14 +1,16 @@
 .stoplight{
 	width: 125px;
 	height: 125px;
-	border-radius: 75px;
 	margin: 0 auto;
+	margin-right: auto;
+	margin-left:auto;
 	margin-bottom:20px;
 	background: grey;
 	border-radius:100%;
 	border:1px;
 	border-top: 4px solid black;
 	box-shadow: 0 0 0.5em rgb(120,120,120);
+	overflow:auto;
 }
 
 .stoplight-stop{
@@ -26,12 +28,17 @@
 .rectangle{
     margin-right: auto;
     margin-left:auto;
-    width:18%;
-    height:450px;
+    width:150px;
+    height:200%;
     background-color:rgb(251, 220, 10);
     padding:50px;
     border-radius:25px;
     box-shadow: 0 0 1.5em rgb(120,120,120);
     overflow:auto;
   }
+
+button{
+	margin:0 auto;
+	overflow:auto;
+	margin-bottom:30px;
 }
