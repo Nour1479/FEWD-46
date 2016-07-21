@@ -43,7 +43,7 @@ function stopLightGo(event) {
   clearInterval(stopLightFlash);
 }
 
-//Step 1 of creating flashing light. This is the function that will have an interval assigned to it at the next stage to create flashing effect (that function will get called ever second). It is very similar to the stopLightSlow function(in fact that can be used), but we assign it seperately so that a) We can clear the interval for stopLightSlow so it can be shown without flashing and b) There is a specific function that doesn't have preventDefault for the purpose of this effect
+//Step 1 of creating flashing light. This is the function that will have an interval assigned to it at the next stage to create flashing effect (that function will get called ever second). It is very similar to the stopLightSlow function(in fact that can be used), but we assign it seperately so that a) We can clear the interval for stopLightSlow so the yellow circle can be shown without flashing and b) There is a specific function that doesn't have preventDefault for the purpose of this effect
 function stopLightFlashing(event){
   stopLightRed.classList.remove("stoplight-stop");
   stopLightYellow.classList.toggle("stoplight-slow");
