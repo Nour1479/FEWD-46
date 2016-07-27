@@ -52,6 +52,7 @@ button {
 input[type="checkbox"] {
   margin-right: 1em;
 }
+/* STATE - Means the input that is adjacent to span */
 input:checked + span {
   opacity: 0.2;
   text-decoration: line-through;

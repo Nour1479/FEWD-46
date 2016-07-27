@@ -1,0 +1,7 @@
+.buttonish {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom-width: 2px;
+  border-radius: 5px; font-size: inherit;
+  padding: .5em 1em;
+  cursor: pointer;
+}

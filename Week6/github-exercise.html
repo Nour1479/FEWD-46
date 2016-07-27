@@ -1,0 +1,69 @@
+<form>
+  <input type="search" id="query" placeholder="GitHub username">
+  <input type="submit" value="Lookup">
+</form>
+
+<table>
+  <tr>
+    <th>Name:</th>
+    <td id="user-name"></td>
+  </tr>
+  <tr>
+    <th>Bio:</th>
+    <td id="user-bio"></td>
+  </tr>
+  <tr>
+    <th>Picture:</th>
+    <td id="user-picture"></td>
+  </tr>
+</table>
+
+<script>
+//Assign variable i.e define for form and add event listener to submit that calls doSomething function
+var form = document.querySelector("form");
+form.addEventListener("submit", doSomething);
+
+//Create variables for inputted value and append it to base URL
+function doSomething(event){
+  event.preventDefault()
+  var input = document.querySelector("#query");
+  var url = ("https://api.github.com/users/") + input.value;
+
+//Calls get function (defined later) with arguments of url variable  that we just defined and showInfo function (defined in next step)
+  get(url, showInfo);
+}
+
+function showInfo(data){
+//Assign variable for parsed JSON data to turn it into an object
+  var accountDeets = JSON.parse(data);
+//Assign variable for username, bio and that we then assign content for based on JSON data received
+  var userName = document.querySelector("#user-name");
+  userName.textContent = accountDeets.name;
+  var bio = document.querySelector("#user-bio");
+  bio.textContent = accountDeets.bio;
+  var img = document.createElement("img");
+  img.setAttribute("src", accountDeets.avatar_url);
+  var userPicture = document.querySelector("#user-picture");
+  userPicture.appendChild(img);
+}
+
+//Get function executing HTTP request
+function get(url, callback) {
+  var request = new XMLHttpRequest();
+
+  request.open("GET", url, true);
+
+  request.addEventListener("readystatechange", handleReadyStateChange)
+
+  function handleReadyStateChange() {
+    if (request.readyState == 4 && request.status == 200) {
+      callback(request.responseText);
+    }
+  };
+
+  request.send();
+}
+
+//End get function
+
+</script>
