@@ -1,0 +1,597 @@
+<script>
+var friends = ["Mike", { model: 911 }, "Andy", "Rick"];
+friends.forEach(function (beachName, index){
+console.log(index + 1 + ". " + beachName); // 1. Mike, 2. Stacy, 3. Andy, 4. Rick​
+});
+
+</script>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div class="branch"></div>
+<div class="branch"></div>
+<div class="branch"></div>
+<div class="branch"></div>
+<div class="branch"></div>
+<div class="branch"></div>
+
+<div class="the-container">
+
+  <input type="checkbox" id="toggle" />
+  <label for="toggle"></label>
+
+  <div class="day-night-cont">
+      <span class="the-sun"></span>
+      <div class="the-moon"><span class="moon-inside"></span></div>
+   </div>
+
+  <div class="switch">
+    <div class="button">
+      <div class="b-inside"></div>
+    </div>
+  </div>
+
+  <div class="c-window">
+
+    <span class="the-sun"></span>
+    <span class="the-moon"></span>
+    <div id="ocean">
+
+    </div>
+    <div class="the-fox">
+      <div class="fox-face">
+        <section class="eyes left"></section>
+        <section class="eyes right"></section>
+        <span class="nose"></span>
+        <div class="white-part"><span class="mouth"></span></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+
+<style>
+
+body{
+  height:auto;
+  margin:0;
+}
+
+#ocean{
+  position:absolute;
+  width:100%;
+  min-height:100%;
+  background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0, rgb(0,50,150)),
+  color-stop(0.50, rgb(0,150,255))
+  );
+}
+
+.wave{
+  background:#a8e3ff;
+  display:inline-block;
+  height:60%;
+  width:10px;
+  position:absolute;
+  -webkit-animation-name:             dostuff;
+  -webkit-animation-duration:         3s;
+  -webkit-animation-iteration-count:  infinite;
+  -webkit-transition-timing-function: ease-in-out;
+}
+
+
+@-webkit-keyframes dostuff{
+  0%{
+    height:60%;
+  }
+  50%{
+    height:40%;
+  }
+  100%{
+    height:60%;
+  }
+}
+/* DAY STYLES*/
+
+body{
+  background: #FFF;
+}
+
+.the-container{
+  display: block;
+  position: absolute;
+  width: 500px;
+  height: 350px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.c-window{
+  display: block;
+  position: relative;
+  width: 235px;
+  height: 235px;
+  margin: 0 auto;
+  border-radius: 100%;
+  border: 8px solid #34A87C;
+  background: #DDDDDD;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.25) inset;
+  overflow: hidden;
+	transition: all .5s linear;
+	-webkit-transition: all .5s linear;
+}
+
+.c-window .the-sun{
+  display: block;
+  position: relative;
+  top: 18px;
+  height: 40px; width: 40px;
+  background: #FFE067;
+  border-radius: 100%;
+  margin: 0 auto;
+  left: 30px;
+}
+
+.c-window .the-moon{
+  position: relative;
+  height: 24px; width: 24px;
+  background: #EEE;
+  border-radius: 100%;
+  display:none;
+}
+
+.c-window .the-fox{
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  height: 140px;
+  width: 135px;
+  margin: 0 50px;
+  background: #E86A47;
+  transition: bottom 1s;
+	-webkit-transition: bottom .15s ease-in-out;
+}
+
+.c-window .the-fox:before{
+   width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 30px solid #E86A47;
+    top: -25px;
+    left: 0;
+    position: absolute;
+    content: "";
+}
+.c-window .the-fox:after{
+   width: 0;
+    height: 0;
+    border-right: 0px solid transparent;
+    border-left: 60px solid transparent;
+    border-bottom: 30px solid #E86A47;
+    top: -30px;
+    right: 0;
+    position: absolute;
+    content: "";
+}
+
+.c-window .the-fox:hover{
+  bottom: -30px;
+}
+
+.c-window .the-fox .eyes{
+   display: block;
+  position: absolute;
+  background: #FFFFFF;
+  height: 15px; width: 15px;
+  border-radius: 100%;
+  bottom: 90px;
+	-webkit-transition: all .15s linear;
+}
+
+.c-window .the-fox:hover .eyes{
+  height: 2px;
+	bottom: 97px;
+}
+
+.c-window .the-fox .eyes.left{
+  left: 30px;
+}
+
+.c-window .the-fox .eyes.right{
+  right: 30px;
+}
+
+.c-window .the-fox .nose{
+   display: block;
+  position: relative;
+  background: #333;
+  height: 12px; width: 12px;
+  border-radius: 100%;
+  margin: 0 auto;
+  top: 50px;
+}
+
+.c-window .the-fox .white-part{
+  display: block;
+  position: relative;
+  width: 0px;
+height: 0px;
+  top: 55px;
+border-style: solid;
+border-width: 60px 70px 0 65px;
+border-color: #ffffff transparent transparent transparent;
+}
+
+
+input[type=checkbox] {
+    position: absolute;
+    visibility: hidden;
+}
+
+ input#toggle[type=checkbox]{
+     display:none;
+ }
+
+
+label {
+    position: absolute;
+    height: 40px;
+    width: 120px;
+    display: block;
+    top: 0px; bottom: 0; right: 0; left:0;
+    z-index: 9999;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.switch {
+  display: block;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  border-radius: 25px;
+  background: #34A87C;
+  box-shadow: inset 0 0 10px #888888;
+  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+  height: 40px;
+  width: 100px;
+  margin: 0px auto 30px auto;
+}
+
+.switch .button{
+  display: block;
+  position: absolute;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #AAA;
+  border-radius: 100%;
+  background: #48E8AA;
+  height: 32px;
+  width: 32px;
+  top: 4px;
+  left: 4px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.25)
+}
+
+.switch .button .b-inside{
+  display: block;
+  position: absolute;
+  border: 1px solid #888;
+  border-radius: 100%;
+  background: #FFE067;
+  height: 15px;
+  width: 15px;
+  top: 7px;
+  left: 7px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.25)
+}
+
+.day-night-cont {
+  display: block;
+  position: absolute;
+  width: 180px;
+  margin: 0 auto;
+  left: 0; right: 0; top: 0; bottom:0;
+  height: 40px;
+  top: 0px;
+}
+
+.day-night-cont .the-sun{
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background: #FFE067;
+  box-shadow: 0px 0px 10px #FFC41D;
+}
+
+.day-night-cont .the-moon {
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background: #DDD;
+  box-shadow: 0px 0px 50px #CCC;
+}
+
+.day-night-cont .the-moon .moon-inside{
+  display: block;
+  position: absolute;
+  left: 8px;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background: #FFFFFF;
+}
+
+/* TOGGLE */
+
+.switch .button {
+    transition: left .25s ease-in-out;
+    -webkit-transition: left .25s ease-in-out;
+}
+
+input[type=checkbox]:checked ~ .switch .button {
+    position: absolute;
+    left: 64px;
+}
+
+/* NIGHT ANIMATION */
+
+input[type=checkbox]:checked ~ .c-window {
+  background: #222222;
+}
+
+input[type=checkbox]:checked ~ .c-window .the-sun{  display: none; }
+input[type=checkbox]:checked ~ .c-window .the-moon{
+  display: block;
+  position: absolute;
+  margin: 0 auto;
+  top: 40px;
+  left: 60px;
+}
+
+input[type=checkbox]:checked ~ .c-window .the-fox{
+  background: #C74628;
+}
+
+input[type=checkbox]:checked ~ .c-window .the-fox:before{
+   width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 30px solid #C74628;
+    top: -30px;
+    left: 0;
+    position: absolute;
+    content: "";
+}
+input[type=checkbox]:checked ~ .c-window .the-fox:after{
+   width: 0;
+    height: 0;
+    border-right: 0px solid transparent;
+    border-left: 60px solid transparent;
+    border-bottom: 30px solid #C74628;
+    top: -30px;
+    right: 0;
+    position: absolute;
+    content: "";
+}
+
+input[type=checkbox]:checked ~ .c-window .the-fox .eyes{
+  height: 2px;
+  bottom: 90px;
+}
+
+input[type=checkbox]:checked ~ .c-window .the-fox:hover .eyes{
+  height: 15px;
+  bottom: 85px;
+}
+
+
+html {
+  background-image:linear-gradient(#369, #fff);
+  height:100%;
+}
+
+.branch {
+  animation:sway 5s infinite linear alternate;
+  border-bottom:none;
+  border-left:solid 6px #060;
+  border-right:none;
+  border-top:none;
+  border-top-left-radius:100%;
+  bottom:0;
+  height:200px;
+  left:25%;
+  position:absolute;
+  transform-origin:bottom;
+  width:50px;
+}
+
+.branch:nth-child(2) {
+  border-width:6px;
+  height:300px;
+}
+
+.branch:nth-child(3) {
+  border-color:#070;
+  border-width:12px;
+  height:400px;
+}
+
+.branch:nth-child(4) {
+  animation:sway 5s infinite linear alternate-reverse;
+  border-left:none;
+  border-right:solid 12px #070;
+  border-top-right-radius:100%;
+  height:350px;
+  left:auto;
+  right:74%;
+}
+
+.branch:nth-child(5) {
+  animation:sway 5s infinite linear alternate-reverse;
+  border-left:none;
+  border-right:solid 9px #060;
+  border-top-right-radius:100%;
+  height:250px;
+  left:auto;
+  right:75%;
+}
+
+.branch:nth-child(6) {
+  animation:sway 5s infinite linear alternate-reverse;
+  border-left:none;
+  border-right:solid 6px #050;
+  border-top-right-radius:100%;
+  height:150px;
+  left:auto;
+  right:75%;
+}
+
+@keyframes sway {
+  0% {
+    width:50px;
+  }
+  100% {
+    width:300px;
+  }
+}
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: black;*/
+    cursor: pointer;
+}
+
+h1 {
+    color: white;
+    font-family: Quicksand;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 45vh;
+    text-align: center;
+    width: 100%;
+}
+</style>
+
+
+<script>
+// var randomColor = function() {
+//     return '#' + Math.random().toString(16).slice(2, 8);
+// }
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+color = "#01235d"; //randomColor();
+
+var height = window.innerHeight;
+var width = window.innerWidth;
+
+canvas.width = width;
+canvas.height = height;
+
+var rain_count = 10;
+var rain_drops = [];
+
+var generate = function() {
+    for (var i = 0; i < rain_count; i++) {
+        rain_drops.push(new rain());
+    }
+}
+
+
+function rain() {
+    this.speed = {
+        y: 2.5 + Math.random() * 5
+    }
+
+    this.location = {
+        x: 0 + Math.random() * width,
+        y: -100 + Math.random() * 100
+    }
+
+    this.accel = {
+        y: 1.5 + Math.random() * 3
+    }
+}
+
+var draw = function() {
+    ctx.globalCompositeOperation = "source-over";
+    ctx.fillStyle = "#7dd3e2";
+    ctx.fillRect(0, 0, width, height);
+    ctx.globalCompositeOperation = "lighter";
+
+    for (var i = 0; i < rain_drops.length; i++) {
+        var r = rain_drops[i];
+
+        ctx.beginPath();
+        ctx.fillStyle = color;
+        ctx.rect(r.location.x, r.location.y, 0.5, 75);
+        ctx.fill();
+
+        r.speed.y += r.accel.y;
+
+        r.location.y += r.speed.y;
+    }
+}
+
+setInterval(generate, 200);
+setInterval(draw, 32);
+
+// ctx.canvas.addEventListener("click", function(event) {
+//     rain_count += 5;
+//     console.log(rain_count);
+// });
+</script>
+
+<script>
+// make some waves.
+var ocean = document.getElementById("ocean"),
+    waveWidth = 10,
+    waveCount = Math.floor(window.innerWidth/waveWidth),
+    docFrag = document.createDocumentFragment();
+
+for(var i = 0; i < waveCount; i++){
+  var wave = document.createElement("div");
+  wave.className += " wave";
+  docFrag.appendChild(wave);
+  wave.style.left = i * waveWidth + "px";
+  wave.style.webkitAnimationDelay = (i/100) + "s";
+}
+
+ocean.appendChild(docFrag);
+
+
+
+
+</script>
+
+</html>

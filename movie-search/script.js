@@ -24,10 +24,7 @@ function showMovieInfo(results){
     li1.id = "li1";
     var div = document.createElement("div");
     var href = document.createElement("a");
-    li1.textContent = movie.Title;
-    li2.textContent = movie.Year;
-    href.setAttribute = ("http://omdbapi.com/?s=")+movie.Title
-
+    .appendTo$("div");
     ul.appendChild(div);
     div.appendChild(li1)
     div.appendChild(li2)
