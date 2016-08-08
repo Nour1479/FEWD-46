@@ -14,7 +14,6 @@ function lookUpMovie(event){
 }
 
 function showMovieInfo(results){
-
 //Assign variable for all parsed JSON data to turn it into an object
   var movieResults = JSON.parse(results);
   var moviesArray = movieResults.Search;
@@ -23,11 +22,13 @@ function showMovieInfo(results){
     var li2 = document.createElement("li");
     li1.id = "li1";
     var div = document.createElement("div");
-    var href = document.createElement("a");
-    .appendTo$("div");
+    //var href = document.createElement("a");
     ul.appendChild(div);
     div.appendChild(li1)
     div.appendChild(li2)
+    li1.textContent = movie.Title;
+    li2.textContent = movie.Year;
+
   })
 }
 
