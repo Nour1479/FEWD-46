@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style media="screen">
+    #myresults {
+      width: 300px;
+      height: 200px;
+      padding: 1em;
+      background: #4ef;
+      }
+
+      .progress-bar{
+        background-color:red;
+      }
+
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+      <h3>How did you get to class today?</h3>
+    <input type="radio" name="question0" value="A">Drove</input>
+    <input type="radio" name="question0" value="B">BART/Bus</input>
+    <input type="radio" name="question0" value="C">Bike/Walk</input>
+  <li>
+    <h3>What are your dietary preferences?</h3>
+    <input type="radio" name="question1" value="A">Carnivore</input>
+    <input type="radio" name="question1" value="C">Vegetarian</input>
+    <input type="radio" name="question1" value="D">Vegan</input>
+  </li>
+  <li>
+    <h3>What are your purchasing choices?</h3>
+    <input type="radio" name="question2" value="A">Walmart</input>
+    <input type="radio" name="question2" value="B">Non-organic</input>
+    <input type="radio" name="question2" value="C">Carnivore</input>
+    <input type="radio" name="question2" value="C">Carnivore</input>
+  </li>
+  <li>
+    <h3>What are your purchasing choices?</h3>
+    <input type="radio" name="question3" value="A">Walmart</input>
+    <input type="radio" name="question3" value="B">Non-organic</input>
+    <input type="radio" name="question3" value="C">Carnivore</input>
+  </li>
+</ul>
+
+  <span id="myresults">Score should appear here</span>
+
+  <!-- Change the below data attribute to play -->
+
+  <div class="container">
+    <h2>Basic Progress Bar</h2>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+        <span class="sr-only">70% Complete</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script type="text/javascript">
+
+var nQuestions = 4;
+var score;
+$("input").on("click",function(){
+  updateScore();
+  displayScore();
+  percentageWidth(score);
+})
+
+function displayScore(){
+  document.getElementById("myresults").innerHTML = "Your score is "+ score;
+}
+
+function updateScore(){
+  var newScore = 0;
+  for (var i=0; i<nQuestions; i++) {
+    newScore += getCheckedValue("question"+i);
+  } // increment only
+  score = newScore;
+  return score;
+}
+
+function getCheckedValue(radioName){
+  var radios = document.getElementsByName( radioName ); // Get radio group by-nam
+  for(var y=0; y<radios.length; y++) {
+    if(radios[y].checked) {
+      return (y + 1) * (1 / radios.length);
+    }
+  }
+}
+
+function percentageWidth(score){
+  var statusBarValue = document.querySelector("progress-bar");
+  var percent = score/nQuestions;
+  $(".progress-bar").css({"width": percent*100+"%"});
+}
+
+
+
+
+
+
+  </script>
+</html>

@@ -6,15 +6,24 @@
 
   <body>
       <header>
-        <img src="images/acme-corp.jpg" alt-"Acme picture" width=20%>
+        <img src="images/acme-corp.jpg" alt-"Acme picture">
         <nav>
+          <ul>
           <li><a class="header-link" href="http://nour1479.github.io/FEWD-46/Acme-Corp/products.html"> Products</a></li>
           <li><a class="button" href="http://nour1479.github.io/FEWD-46/Acme-Corp/contact.html">Sign Up</a></li>
+        </ul>
       </header>
   <style>
   header nav a{
     text-decoration:none;
     color:white;
+  }
+
+  @media (max-width:500px){
+    nav{
+      float:none;
+    }
+
   }
   </style>
 
@@ -48,8 +57,8 @@
     }
 
     nav{
-      float:right;
-      margin-right:20px;
+
+
     }
 
     li{
@@ -88,6 +97,11 @@
       border-radius:25px;
       box-shadow: 0 0 1em rgb(120,120,120);
     }
+
+    header img{
+      height:70px;
+    }
+
     img{
       size:-80%;
     }

@@ -1,0 +1,184 @@
+<html>
+
+<head>
+<title>Test Your Knowledge About M&M's</title>
+</head>
+
+<body bgcolor="#f5f5f5">
+
+<h1>Test Your Knowledge About M&amp;M's</h1>
+
+<script language="JavaScript">
+
+<!--
+
+/*Declare the array. The size of your array is one more than the number of questions you are asking. Arrays begin at position 0. We will be putting the students name in position 0.*/
+
+numberQuestions = 4
+
+var AA=new Array(numberQuestions + 1);
+
+/*A nested for loop.
+
+The outer loop cycles through each question asked.
+
+The inner loop checks the value of each answer. Since we have three responses to each quiz, the middle parameter is 3. Change this number to correspond to the number of responses per question in your quiz.*/
+
+function first( ) {
+
+for (var w=1; w <= numberQuestions; w++) {
+
+for(var n=0; n <=3; n++){
+
+/*This if statement checks to see if that particular response was selected. If it was, then the value of the response is put in the array AA. Notice also that I am accessing the forms through the forms array. Using the forms array enables me to check through all the questions using a loop, instead of accessing each form individually.*/
+
+if (document.forms[w].elements[n].checked){
+
+AA[w] = document.forms[w].elements[n].value;
+
+}
+
+}
+
+}
+
+/*This places the name of the person taking the quiz into the 0th position of the array. Remember that arrays begin at position 0. This will be the persons name.*/
+
+AA[0] = document.id.input1.value
+
+var z=0;
+
+/*This little for loop cycles through the responses that are stored in the array AA. If the answer is correct, and you need to type the word correct, no spaces, capitalization or any other variation, then we add 1 to the value of z. This will enable us to determine what percentage of questions the student got correct.*/
+
+for (var n=1; n<= numberQuestions; n++) {
+
+if (AA[n] == "correct") {z+=1};
+
+}
+
+/*Opens a new window to display the choices selected by the user and the percentage correct. If you asked more than 4 questions, you will need to copy/paste the line highlighted in blue and change the number to the corresponding question number.  For example, if there is a fifth question, add a line "Number 5 is : "+AA[5] +"<br>"+  to the code below.*/
+
+results=window.open("","","height=400,width=250,scrollbars=yes")
+
+results.document.open();
+
+results.document.write ("<html>" +
+
+"<head><title>Answers</title>"+
+
+"<body bgcolor=blue text=white>"+
+
+"<hr>"+"<BR>" +
+
+"Number 1 is : "+AA[1] +"<br>"+
+
+"Number 2 is: "+AA[2] +"<br>"+
+
+"Number 3 is: "+AA[3] + "<br>"+
+
+"Number 4 is : "+AA[4] +"<br>"+
+
+"<br><br>"+
+
+AA[0] + ", you got "+z+" correct out of "+ numberQuestions +"<br><br>" + "Your score is "+ Math.round((z/ numberQuestions) * 100)+" %"
+
++"<br><br></body></html>");
+
+results.document.close();
+
+}
+
+//-->
+
+</script>
+
+
+
+<p><b>Given each of the questions below, check the most appropriate response.</b></p>
+
+<form NAME="id">
+<p>Please enter your name <input size="35" type="text" name="input1" rows="1" cols="50"></p>
+</form>
+
+<form>
+<p>1. What is the newest color M&M?<br><br>
+
+<input type="radio" name="Q1" value="Sorry, the correct answer is D.">Yellow<br>
+
+<input type="radio" name="Q1" value="Sorry, the correct answer is D.">Green<br>
+
+<input type="radio" name="Q1" value="Sorry, the correct answer is D.">Red<br>
+
+<input type="radio" name="Q1" value="correct">Blue<br>
+
+<br>
+<br>
+</p>
+</form>
+
+<form>
+<p>2. Which of the following is not an Easter color M&;M?<br><br>
+
+<input type="radio" name="Q2" value="correct">Pastel Orange<br>
+
+<input type="radio" name="Q2" value="Sorry, the correct answer is A.">Pastel Blue<br>
+
+<input type="radio" name="Q2" value="Sorry, the correct answer is A.">Pastel Pink<br>
+
+<input type="radio" name="Q2" value="Sorry, the correct answer is A.">Pastel Green<br>
+
+<br>
+<br>
+</p>
+</form>
+
+<form>
+
+<p>3. Which of the follow M&M's is the only female? (At least the only female in the commercials.)<br><br>
+
+<input type="radio" name="Q3" value="Sorry, the correct answer is C.">Blue<br>
+
+<input type="radio" name="Q3" value="Sorry, the correct answer is C.">Red<br>
+
+<input type="radio" name="Q3" value="correct">Green<br>
+
+<input type="radio" name="Q3" value="Sorry, the correct answer is C.">Yellow<br>
+
+<br>
+<br>
+</p>
+</form>
+
+<form>
+
+<p>4. What color M&M was recently retired?<br><br>
+
+<input type="radio" name="Q4" value="Sorry, the correct answer is B.">Brown<br>
+
+<input type="radio" name="Q4" value="correct">Tan<br>
+
+<input type="radio" name="Q4" value="Sorry, the correct answer is B.">Black<br>
+
+<input type="radio" name="Q4" value="Sorry, the correct answer is B.">Grey<br>
+
+<br>
+<br>
+</p>
+</form>
+
+<form>
+
+<p><input type="button" name="answers" value="Click here for answers" onclick="first()">
+<input type="button" name="close" value="Click here to close answer window" onclick="results.close();"> </p>
+
+</form>
+
+<p>Copyright © 1999 Donna Tupper.<br>
+
+<br>
+
+</p>
+
+</body>
+
+</html>

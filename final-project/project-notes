@@ -1,0 +1,22 @@
+Use bar based on choices
+
+CHOICES:
+
+TRANSPORTATION
+Drive-SUV/Drive-Standard/ Drive- Hybrid/ Bike/BART
++5 +4 +3 0 +1
+
+DIETARY
+Vegetarian/Vegan/Carnivore
++1 0 +5
+
+ORGANIC/NON-ORGANIC?
+0 +3
+
+FLYING
+Yes/No?
++10 0
+
+HOUSING
+Apt/House
+0 +3

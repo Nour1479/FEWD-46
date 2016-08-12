@@ -1,0 +1,32 @@
+/*Code to make image responsive*/
+div.ri /*#background*/
+{
+	position: absolute;
+  width:100%;
+	max-width: 100%;
+	top: 10%;
+	left: 10%;
+	border-radius: 3px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+  background-color:rgb(163, 229, 238);
+}
+
+div.ri:empty /*#background*/
+{
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+@media screen and (orientation: portrait) {
+  div.ri max-width: 90%;{
+}
+
+@media screen and (orientation: landscape) {
+  div.ri { max-height: 90%;
+}*/
+/*End of responsive code for base image*/
