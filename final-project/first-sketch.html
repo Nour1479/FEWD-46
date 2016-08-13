@@ -8,21 +8,22 @@
   </head>
   <body>
     <main>
-      <!--Can we add an event listener to the rain?!-->
       <button type="button" id="mybutton">Stop</button>
-      <!--Apparently not!-->
 
-<!--Backdrop!-->
+      <!--Backdrop!-->
       <div class="box">
-        <img id="landscape" src="images/base-landscape-bare-edit.png" class="box">
+        <div class="inner-box">
+          <img id="landscape" src="images/base-landscape-bare-edit.png">
+
+          <div id="content-creation">
+          </div>
+        </div>
+
+
+        <canvas class="box" id="canvas"></canvas>
       </div>
 
-      <!--Make it rain!-->
-      <canvas class="box" id="canvas"></canvas>
 
-
-      <div id="content-creation">
-      </div>
 
     </main>
     <script src="script.js"></script>

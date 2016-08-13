@@ -1,9 +1,9 @@
-//
-$("#mybutton").on("click",function(){
-  console.log("is this thing on?");
-  $("#content-creation").html("<h1>This is new</h1>");
-})
-$("#content-creation").html("<h1>This is new</h1>");
+var skyColor = "#7dd3e2";
+
+//Tester for creating divs and content
+$("#mybutton").on("click",function(event){
+  $("#content-creation").html('<img id="fox" src="images/fox.png">')
+});
 
 
 //RAIN
@@ -50,7 +50,7 @@ function rain() {
 
 var draw = function() {
     ctx.globalCompositeOperation = "source-over";
-    ctx.fillStyle = "#7dd3e2";//Background color
+    ctx.fillStyle = skyColor;//Background color
     ctx.fillRect(0, 0, width, height);
     ctx.globalCompositeOperation = "lighter";
 
@@ -68,6 +68,15 @@ var draw = function() {
     }
 }
 
-setInterval(generate, 100);
-setInterval(draw, 30);
+var generateInterval;
+
+function startRain() {
+  generateInterval = setInterval(generate, 100);
+  setInterval(draw, 30);
+}
+
+function stopRain() {
+  clearInterval(generateInterval);
+}
+
 //End of RAIN
