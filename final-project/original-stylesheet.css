@@ -13,15 +13,14 @@
   height:100%;
 }
 
-#canvas           { z-index: -1;}
-#landscape        { z-index: 0; }
-#fox              { z-index: 1; }
-#water            { z-index: 1; }
+#canvas    { z-index: -1;}
+#landscape { z-index: 0; }
+#fox       { z-index: 1; }
 
 #landscape {
     position:absolute;
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    max-height: auto;
     border-radius: 3px;
 	  box-shadow: 0 3px 6px rgba(0,0,0,0.9);
     bottom: 0;
@@ -41,9 +40,27 @@
   padding-bottom: 5%;
 }
 
-#water{
-  postition:absolute;
-  bottom:0;
-  width:100%;
 
+#content-creation{
+  z-index:1;
+}
+
+.clearfix{
+  clear: both;
+   content: ".";
+   display: block;
+   height: 0;
+   line-height: 0;
+   visibility: hidden;
+}
+
+#fox-button{
+  z-index:2;
+  position:absolute;
+  float:left;
+}
+
+#tree-button{
+  z-index:2;
+  position:absolute;
 }

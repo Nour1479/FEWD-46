@@ -1,15 +1,23 @@
-var skyColor = "#7dd3e2";
+//Creating reactive divs and content
+function createFox(event){
+  $("#fox-creation").html('<img id="fox" src="images/fox.png">')
+}
 
-//Tester for creating divs and content
-$("#mybutton").on("click",function(event){
-  $("#content-creation").html('<img id="fox" src="images/fox.png">')
-});
-
+function createWater(event){
+  $("#water-creation").html('<img id="water" src="images/water.png">')
+}
 
 //RAIN
+
+//Variable sets sky color
+var skyColor = "#7dd3e2";
+
 var canvas = document.getElementById("canvas");//Canvas
 var ctx = canvas.getContext("2d");//It provides the 2D rendering context for the drawing surface
-color = "#01235d"; //randomColor();
+
+//
+
+color = "#01235d"; //rain color
 
 var height = window.innerHeight;
 //height of the browser window's viewport
@@ -24,7 +32,6 @@ canvas.height = height;
 var rain_count = 100;
 var rain_drops = [];
 
-//Whats calling this?
 //This function controls the number of raindrops, increasing them till they match the rain count set
 var generate = function() {
     for (var i = 0; i < rain_count; i++) {
