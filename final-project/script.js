@@ -1,12 +1,33 @@
 //Creating reactive divs and content
 function createFox(event){
-  $("#fox-creation").html('<img id="fox" src="images/fox.png">')
+  $("#fox-creation").html('<img id="fox" src="images/fox.png">');
 }
 
-function createWater(event){
-  $("#water-creation").html('<img id="water" src="images/water.png">')
+function removeFox(event){
+  $("#fox").fadeOut(2000, function(){
+    $("fox").remove();
+  })
 }
 
+function createTrees(event){
+  $("#trees1-creation").html('<img id="trees1" src="images/tree.png">');
+}
+
+function removeTree(event){
+  $("#trees1").fadeOut(1500,function(){
+    $("#trees1").remove();
+  })
+}
+
+function createMoreTrees(event){
+  $("#trees2-creation").html('<img id="trees2" src="images/more-trees.png">');
+}
+
+function removeMoreTrees(event){
+  $("#trees2").fadeOut(1500, function(){
+    $("#trees2").remove();
+  })
+}
 //RAIN
 
 //Variable sets sky color
@@ -87,3 +108,67 @@ function stopRain() {
 }
 
 //End of RAIN
+
+//Change nQuestions according to the number of questions
+var nQuestions = 5;
+var score;
+var percent;
+var progressBar = document.querySelector(".meter");
+
+$("input").on("click",function(){
+updateScore();
+displayScore();
+percentageWidth(score);
+
+})
+
+if (percent>0.5) {
+  startRain();
+}
+else{
+  stopRain();
+}
+
+//This function updates the score in the HTML
+function displayScore(){
+document.getElementById("myresults").innerHTML = ""+ score;
+}
+
+//This function creates a starter variable, newScore. It loops over as long as i<the number of questions
+function updateScore(){
+var newScore = 0;
+for (var i=0; i<nQuestions; i++) {
+  newScore += getCheckedValue("question"+i);//New score is increase by value returned by the function
+}
+//Update score for each iteration
+score = newScore;
+return score;
+}
+
+//'RadioName' is just question0, question1 etc
+//If the choice is checked,
+function getCheckedValue(radioName){
+var radios = document.getElementsByName( radioName ); // Get radio group by-name i.e question0, question1 etc
+for(var y=0; y<radios.length; y++) {
+  if(radios[y].checked) {
+    return (y+1) * (1 / radios.length);// 1 divided by radios.length is to help yield proportion for a variable number of radios.
+  }
+}
+}
+
+function percentageWidth(score){
+var statusBarValue = document.querySelector("progress-bar");
+var percent = score/ nQuestions;
+$(".progress-bar").css({"width": percent*100+"%"});
+$(".meter>span").css({"width": percent*100+"%"});
+console.log(percent);
+}
+
+// End of calculation segment
+var waterDiv = document.getElementById("water-creation");
+function raiseWater(event){
+  console.log("is this thing on?");
+
+  var waterHeight = waterDiv.style.top;
+  // var waterHeight = waterHeight+10;
+}
