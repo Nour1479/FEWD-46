@@ -1,3 +1,9 @@
+#questions-right{
+  width:40%;
+  float:right;
+}
+
+
 .box{
   border: 1px solid blue;
   position: absolute;
@@ -27,7 +33,7 @@
     height: auto;
     border-radius: 3px;
 	  box-shadow: 0 3px 6px rgba(0,0,0,0.9);
-    bottom: 10%;
+    bottom: 5%;
 }
 
 #canvas{
@@ -39,24 +45,39 @@
 #fox {
   position: absolute;
   width: 20%;
-  left: 40%;
-  bottom: 0;
+  left: 30%;
+  bottom: 7%;
   margin-bottom: 20%;
+  transition: opacity 500ms;
+}
+
+.fox-out {
+  opacity:0;
 }
 
 #trees1 {
   position: absolute;
   width: 15%;
   bottom: 0;
-  margin-bottom: 20%;
+  margin-bottom:35%;
+  height:25%;
+  left:45%
 }
 
 #trees2{
   position: absolute;
-  width: 70%;
-  right: 10%;
-  bottom: 0;
+  width: 30%;
+  right: 5%;
+  bottom: 70px;
   margin-bottom: 20%;
+}
+
+#trees3{
+  position:absolute;
+  width:30%;
+  left:5%;
+  bottom:40px;
+  margin-bottom:20%;
 }
 
 
@@ -72,7 +93,7 @@
   position:absolute;
   margin-bottom:0;
   /*width:100%;*/
-  bottom:-180px;
+  bottom:-185px;
   animation:sway 3s infinite alternate ease-in;
   transform-origin: 70% 50%;
 }
@@ -86,6 +107,7 @@
 #questions{
   float:right;
   width:50%;
+  margin-right:30px;
 }
 
 body{

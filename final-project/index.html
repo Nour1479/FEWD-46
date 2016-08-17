@@ -14,10 +14,9 @@
         <div class="inner-box">
 
           <canvas class="box" id="canvas"></canvas>
-          <img id="landscape" src="images/new-landscape.png">
+          <img id="landscape" src="images/new-landscape2.png">
 
-            <div id="fox-creation">
-            </div>
+          <img id="fox" src="images/fox.png" class="fox-out">
 
             <div id="trees1-creation">
             </div>
@@ -42,45 +41,50 @@
 <section>
     <div id="questions">
       <h2>Answer these questions and get your environmental-friendliness score!</h2>
-      <ul>
+      <div id="questions-right">
+        <ul>
+          <h3>What are your dietary preferences?</h3>
+            <li><label><input type="radio" name="question1" value=10 checked >Proud carnivore</input></label><li>
+            <li><label><input type="radio" name="question1" value=20>Guilt-ridden pescatarian</input></label><li>
+            <li><label><input type="radio" name="question1" value=30>Placid vegetarian</input></label><li>
+            <li><label><input type="radio" name="question1" value=40>Angry vegan</input></label><li>
+        </ul>
 
-        <li>
+        <ul>
+          <h3>What industry do you work in?</h3>
+            <li><label><input type="radio" name="question2" value=10 checked>Evil corporate oil industry></input></label></li>
+            <li><label><input type="radio" name="question2" value=20>Standard tertiary sector work</input></label></li>
+            <li><label><input type="radio" name="question2" value=30>Organic farming</input></label></li>
+        </ul>
+      </div>
+
+      <ul>
+        <ul>
           <h3>How did you get to class today?</h3>
             <li><label><input type="radio" name="question0" checked value="10">Drove an SUV</input></label></li>
             <li><label><input type="radio" name="question0" value="20">Drove a normal car</input></label></li>
             <li><label><input type="radio" name="question0" value="30">Drove a Tesla</input></label></li>
             <li><label><input type="radio" name="question0" value="40">BART/Bus</input></label></li>
             <li><label><input type="radio" name="question0" value="50">Bike/Walk</input></label></li>
-        </li>
+        </ul>
 
-        <li>
-          <h3>What are your dietary preferences?</h3>
-            <li><label><input type="radio" name="question1" value=10 checked >Proud carnivore</input></label><li>
-            <li><label><input type="radio" name="question1" value=20>Guilt-ridden pescatarian</input></label><li>
-            <li><label><input type="radio" name="question1" value=30>Placid vegetarian</input></label><li>
-            <li><label><input type="radio" name="question1" value=40>Angry vegan</input></label><li>
-        </li>
 
-        <li>
-          <h3>What industry do you work in?</h3>
-            <li><label><input type="radio" name="question2" value=10 checked>Evil corporate oil industry></input></label></li>
-            <li><label><input type="radio" name="question2" value=20>Standard tertiary sector work</input></label></li>
-            <li><label><input type="radio" name="question2" value=30>Organic farming</input></label></li>
-        </li>
 
-      <li>
+
+
+      <ul>
         <h3>How much air travel have you done in the last year?</h3>
           <li><label><input type="radio" name="question3" value=10 checked>5-10 flights</input></label></li>
           <li><label><input type="radio" name="question3" value=20>1-5 flights</input></label></li>
           <li><label><input type="radio" name="question3" value=30>Putting yourself in a flying metal tube is insane</input></label></li>
-      </li>
+      </ul>
 
-      <li>
+      <ul>
         <h3>Which is the most accurate description of your living situation?</h3>
           <li><label><input type="radio" name="question4" value="10" checked>"Weeds"-esque suburbia</input></label></li>
           <li><label><input type="radio" name="question4" value="20">Tiny box-like apartment</input></label></li>
           <li><label><input type="radio" name="question4" value="30">My van</input></label></li>
-      </li>
+      </ul>
 
     </ul>
 

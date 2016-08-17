@@ -1,12 +1,10 @@
 //Creating reactive divs and content
 function createFox(event){
-  $("#fox-creation").html('<img id="fox" src="images/fox.png">');
+  $("#fox").removeClass("fox-out");
 }
 
 function removeFox(event){
-  $("#fox").fadeOut(2000, function(){
-    $("fox").remove();
-  })
+  $("#fox").addClass("fox-out")
 }
 
 function createTrees(event){
@@ -20,7 +18,11 @@ function removeTree(event){
 }
 
 function createMoreTrees(event){
-  $("#trees2-creation").html('<img id="trees2" src="images/more-trees.png">');
+  $("#trees2-creation").html('<img id="trees2" src="images/trees-group1.png">');
+}
+
+function createEvenMoreTrees(event){
+  $("#trees3-creation").html('<img id="trees3" src="images/trees-group2.png">');
 }
 
 function removeMoreTrees(event){
@@ -30,7 +32,7 @@ function removeMoreTrees(event){
 }
 
 //Raising water level
-var waterHeight = -180; //How do I set ths to the style and not just the arbitrary number
+var waterHeight = -185; //How do I set ths to the style and not just the arbitrary number?
 var waterImg = document.getElementById("water");
 function raiseWater(event){
   waterHeight = waterHeight+5;
@@ -182,6 +184,7 @@ $("input").on("click",function(){
 
     if (score>=70){
       createFox();
+      createEvenMoreTrees();
     } else{
       removeFox();
     }
@@ -203,6 +206,6 @@ $("input").on("click",function(){
     } else if (score>=60){
       $("#water").css({"bottom":"-170px"});
     } else {
-      $("#water").css({"bottom":"-165px"});  
+      $("#water").css({"bottom":"-165px"});
     }
 })
