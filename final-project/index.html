@@ -28,9 +28,9 @@
             <div id="trees3-creation">
             </div>
 
-            <div id="water-creation">
-              <img class="resize" id="water" src="images/water.png">
-            </div>
+
+            <img class="resize" id="water" src="images/water.png">
+
 
         </div>
       </div>
@@ -45,58 +45,46 @@
       <ul>
 
         <li>
-
-        </li>
-        <li>
           <h3>How did you get to class today?</h3>
-            <label><input type="radio" name="question0" checked>Drove an SUV</input></label>
-            <label><input type="radio" name="question0">Drove a normal car</input></label>
-            <label><input type="radio" name="question0" >Drove a Tesla</input></label>
-            <label><input type="radio" name="question0">BART/Bus</input></label>
-            <label><input type="radio" name="question0">Bike/Walk</input></label>
+            <li><label><input type="radio" name="question0" checked value="10">Drove an SUV</input></label></li>
+            <li><label><input type="radio" name="question0" value="20">Drove a normal car</input></label></li>
+            <li><label><input type="radio" name="question0" value="30">Drove a Tesla</input></label></li>
+            <li><label><input type="radio" name="question0" value="40">BART/Bus</input></label></li>
+            <li><label><input type="radio" name="question0" value="50">Bike/Walk</input></label></li>
         </li>
 
         <li>
           <h3>What are your dietary preferences?</h3>
-            <label><input type="radio" name="question1" checked>Proud carnivore</input></label>
-            <label><input type="radio" name="question1">Guilt-ridden pescatarian</input></label>
-            <label><input type="radio" name="question1">Placid vegetarian</input></label>
-            <label><input type="radio" name="question1">Angry vegan</input></label>
+            <li><label><input type="radio" name="question1" value=10 checked >Proud carnivore</input></label><li>
+            <li><label><input type="radio" name="question1" value=20>Guilt-ridden pescatarian</input></label><li>
+            <li><label><input type="radio" name="question1" value=30>Placid vegetarian</input></label><li>
+            <li><label><input type="radio" name="question1" value=40>Angry vegan</input></label><li>
         </li>
 
         <li>
           <h3>What industry do you work in?</h3>
-            <label><input type="radio" name="question2"checked>Evil corpotate oil     industry</input></label>
-            <label><input type="radio" name="question2">Standard tertiary sector    work</input></label>
-            <label><input type="radio" name="question2">Organic farming</input></label>
+            <li><label><input type="radio" name="question2" value=10 checked>Evil corporate oil industry></input></label></li>
+            <li><label><input type="radio" name="question2" value=20>Standard tertiary sector work</input></label></li>
+            <li><label><input type="radio" name="question2" value=30>Organic farming</input></label></li>
         </li>
 
       <li>
         <h3>How much air travel have you done in the last year?</h3>
-          <label><input type="radio" name="question3" checked>5-10 flights</input></label>
-          <label><input type="radio" name="question3">1-5 flights</input></label>
-          <label><input type="radio" name="question3">Putting yourself in a flying metal tube is insane</input></label>
+          <li><label><input type="radio" name="question3" value=10 checked>5-10 flights</input></label></li>
+          <li><label><input type="radio" name="question3" value=20>1-5 flights</input></label></li>
+          <li><label><input type="radio" name="question3" value=30>Putting yourself in a flying metal tube is insane</input></label></li>
       </li>
 
       <li>
         <h3>Which is the most accurate description of your living situation?</h3>
-          <label><input type="radio" name="question4" checked>"Weeds"-esque suburbia</input></label>
-          <label><input type="radio" name="question4">Tiny box-like apartment</input></label>
-          <label><input type="radio" name="question4">My van</input></label>
+          <li><label><input type="radio" name="question4" value="10" checked>"Weeds"-esque suburbia</input></label></li>
+          <li><label><input type="radio" name="question4" value="20">Tiny box-like apartment</input></label></li>
+          <li><label><input type="radio" name="question4" value="30">My van</input></label></li>
       </li>
 
     </ul>
 
     <h2>Your score is<span id="myresults"></span></h2>
-
-  <!-- <div class="container">
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-       <span class="sr-only">70% Complete</span>
-      </div>
-    </div>
-  </div> -->
-
         <div class="meter">
           <span style="width="(score/nQuestions *100)></span>
         </div>

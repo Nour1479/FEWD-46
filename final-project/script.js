@@ -28,6 +28,20 @@ function removeMoreTrees(event){
     $("#trees2").remove();
   })
 }
+
+//Raising water level
+var waterHeight = -180; //How do I set ths to the style and not just the arbitrary number
+var waterImg = document.getElementById("water");
+function raiseWater(event){
+  waterHeight = waterHeight+5;
+  $("#water").css({"bottom":waterHeight+"px"});
+}
+
+function lowerWater(event){
+  waterHeight = waterHeight-5;
+  $("#water").css({"bottom":waterHeight+"px"});
+  }
+
 //RAIN
 
 //Variable sets sky color
@@ -35,8 +49,6 @@ var skyColor = "#7dd3e2";
 
 var canvas = document.getElementById("canvas");//Canvas
 var ctx = canvas.getContext("2d");//It provides the 2D rendering context for the drawing surface
-
-//
 
 color = "#01235d"; //rain color
 
@@ -50,7 +62,7 @@ canvas.width = width;
 canvas.height = height;
 
 //Setting variable names for rain count and drops (which is an array)
-var rain_count = 100;
+var rain_count = 50;
 var rain_drops = [];
 
 //This function controls the number of raindrops, increasing them till they match the rain count set
@@ -114,61 +126,83 @@ var nQuestions = 5;
 var score;
 var percent;
 var progressBar = document.querySelector(".meter");
+minScore=50;
+maxScore=180;
 
 $("input").on("click",function(){
-updateScore();
-displayScore();
-percentageWidth(score);
-
+  updateScore();
+  displayScore();
+  percentageWidth(score);
 })
-
-if (percent>0.5) {
-  startRain();
-}
-else{
-  stopRain();
-}
 
 //This function updates the score in the HTML
 function displayScore(){
-document.getElementById("myresults").innerHTML = ""+ score;
+  document.getElementById("myresults").innerHTML = "" + score +"/100";//Replaced score with percent
 }
 
 //This function creates a starter variable, newScore. It loops over as long as i<the number of questions
-function updateScore(){
-var newScore = 0;
-for (var i=0; i<nQuestions; i++) {
-  newScore += getCheckedValue("question"+i);//New score is increase by value returned by the function
-}
-//Update score for each iteration
-score = newScore;
-return score;
+function updateScore() {
+  var newScore = 0;
+  for (var i=0; i<nQuestions; i++) {
+    newScore += getCheckedValue("question"+i);//New score is increase by value returned by the function
+  }
+
+  //Update score for each iteration
+  score = Math.round(((newScore - minScore) / (maxScore - minScore)) * 100);
+  return score;
 }
 
 //'RadioName' is just question0, question1 etc
 //If the choice is checked,
 function getCheckedValue(radioName){
-var radios = document.getElementsByName( radioName ); // Get radio group by-name i.e question0, question1 etc
-for(var y=0; y<radios.length; y++) {
-  if(radios[y].checked) {
-    return (y+1) * (1 / radios.length);// 1 divided by radios.length is to help yield proportion for a variable number of radios.
+  var radios = document.getElementsByName( radioName ); // Get radio group by-name i.e question0, question1 etc
+  for (var y=0; y<radios.length; y++) {
+    if(radios[y].checked) {
+      return parseInt(radios[y].value);
+    }
   }
-}
 }
 
 function percentageWidth(score){
-var statusBarValue = document.querySelector("progress-bar");
-var percent = score/ nQuestions;
-$(".progress-bar").css({"width": percent*100+"%"});
-$(".meter>span").css({"width": percent*100+"%"});
-console.log(percent);
+  var statusBarValue = document.querySelector("progress-bar");
+  percent = (score / nQuestions)*100;
+  $(".meter>span").css({"width": score+"%"});
 }
-
 // End of calculation segment
-var waterDiv = document.getElementById("water-creation");
-function raiseWater(event){
-  console.log("is this thing on?");
 
-  var waterHeight = waterDiv.style.top;
-  // var waterHeight = waterHeight+10;
-}
+
+
+//Setting what appears and disappears
+$("input").on("click",function(){
+    if (score>=80) {
+        startRain();
+    } else {
+        stopRain();
+    }
+
+    if (score>=70){
+      createFox();
+    } else{
+      removeFox();
+    }
+
+    if (score>=60){
+      createMoreTrees();
+    } else {
+      removeMoreTrees();
+    }
+
+    if(score>=50){
+      createTrees();
+    } else {
+      removeTree();
+    }
+
+    if(score>=80){
+      $("#water").css({"bottom":"-175px"});
+    } else if (score>=60){
+      $("#water").css({"bottom":"-170px"});
+    } else {
+      $("#water").css({"bottom":"-165px"});  
+    }
+})
