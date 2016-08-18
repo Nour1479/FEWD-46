@@ -6,16 +6,6 @@ window.onload = function(){
     $("#water").css({"bottom":"-110px"});
 };
 
-//Creating reactive divs and content
-function sadSky(){
-  $("#canvas").addClass("bleak");
-  $("#canvas").removeClass("hopeful");
-}
-
-function happySky(){
-  $("#canvas").removeClass("bleak");
-  $("#canvas").addClass("hopeful");
-}
 
 function createFox(event){
   $("#fox").removeClass("fox-out");
@@ -149,10 +139,10 @@ function startRain() {
   generateInterval = setInterval(generate, 100);
   setInterval(draw, 30);
 }
-
-function stopRain() {
-  clearInterval(generateInterval);
-}
+// This function can also be used to stop rain falling, but is a little glitchy
+// function stopRain() {
+//   clearInterval(generateInterval);
+// }
 
 //End of RAIN
 
@@ -293,3 +283,15 @@ $("input").on("click",function(){
 //   waterHeight = waterHeight-5;
 //   $("#water").css({"bottom":waterHeight+"px"});
 //   }
+
+//Creating reactive divs and content
+//These don't work because of the underlying mechanism of the rain. Figure this out later or another method to get smoot thansitions
+// function sadSky(){
+//   $("#canvas").addClass("bleak");
+//   $("#canvas").removeClass("hopeful");
+// }
+//
+// function happySky(){
+//   $("#canvas").removeClass("bleak");
+//   $("#canvas").addClass("hopeful");
+// }

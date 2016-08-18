@@ -14,13 +14,13 @@
 
 
 .box{
-  border: 1px solid blue;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   width:50%;
+  box-shadow: 2px 2px 2px 2px #ccc;
 }
 
 .inner-box{
@@ -51,7 +51,6 @@
     width: 100%;
     height: auto;
     border-radius: 3px;
-	  box-shadow: 0 3px 6px rgba(0,0,0,0.9);
     bottom: 5%;
 }
 
@@ -205,18 +204,21 @@ body{
   margin-left:100px;
 }
 
-h2{
-  margin-left:50px;
+.top-bottom{
+  margin-left:8%;
+  margin-right: 8%;
+  margin-top:5%;
+  margin-bottom:5%;
   text-align:center;
-  margin-top:3%;
+  font-size: 2em;
+}
+
+#bottom{
+  font-size: 1.75em;
 }
 
 .progress-bar{
   background-color:red;
-}
-
-h1 {
-  font-size: 1em;
 }
 
 ul{
