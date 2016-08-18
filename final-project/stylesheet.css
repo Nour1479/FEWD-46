@@ -1,6 +1,15 @@
-#questions-right{
-  width:40%;
+/*section{
   float:right;
+}*/
+
+#questions-right{
+  width:50%;
+  float:right;
+}
+
+#questions-left{
+  width:50%
+  float:left;
 }
 
 
@@ -21,11 +30,20 @@
   overflow:hidden;
 }
 
+/*.initial{
+  opacity:0;
+  transition:all 7s;
+}
+
+.after{
+  opacity:100;
+}*/
+
 #canvas           { z-index: -1;}
 #landscape        { z-index: 0; }
-#fox              { z-index: 1; }
+#fox              { z-index: 2; }
 #water            { z-index: 1; }
-#trees2           { z-index: 2; }
+#trees2           { z-index: 1; }
 #eagle            { z-index: 1; }
 
 #landscape {
@@ -55,7 +73,7 @@
 #eagle {
   position: absolute;
   width: 15%;
-  left: -10%;
+  left: -15%;
   top: 10%;
   margin-bottom: 20%;
   transition: opacity 300ms;
@@ -69,6 +87,7 @@
 .eagle-out {
   /*animation:fly 3s;*/
   opacity:100;
+  transform:rotate(1080deg) translate (100,100);
   animation:fly 6s forwards;
 }
 
@@ -79,7 +98,7 @@
 @keyframes fly {
   0%{ }
   25%{ transform:translate(0px,0px);}
-  50%{ transform:rotate(180deg) translate (300px,250px);}
+  50%{ transform:translate (300px,250px);}
   100%{ transform:translate(800px,100px);}
 }
 
@@ -97,13 +116,33 @@
   opacity:0;
 }
 
+.fox-jump{
+  transform: rotate(180deg); /* Standard syntax */
+  animation: jump 3s forwards;
+}
+
+@keyframes jump {
+  0%{ }
+  25%{ transform:translateX(100px);}
+  50%{ transform:rotate(20deg) translate();}
+  100%{ transform:translateX(200px);}
+}
+
+
+
+
 #trees1 {
   position: absolute;
   width: 15%;
   bottom: 0;
   margin-bottom:35%;
   height:25%;
-  left:45%
+  left:45%;
+  transition: opacity 500ms;
+}
+
+.trees-out{
+  opacity:0;
 }
 
 #trees2{
@@ -112,6 +151,7 @@
   right: 5%;
   bottom: 70px;
   margin-bottom: 20%;
+  transition: opacity 500ms;
 }
 
 #trees3{
@@ -120,6 +160,7 @@
   left:5%;
   bottom:40px;
   margin-bottom:20%;
+  transition: opacity 500ms;
 }
 
 
@@ -153,8 +194,8 @@
 }
 
 body{
-font-family:arial;
-font-size:70%;
+  font-family:arial;
+  font-size:70%;
 }
 
 #myresults {
@@ -202,7 +243,8 @@ img.resize{
     background: #555;
     border-radius: 25px;
     padding: 10px;
-    margin-left:50px;
+    margin-left:30px;
+    margin-right:30px;
     box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
   }
   .meter > span {

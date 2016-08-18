@@ -3,7 +3,7 @@ window.onload = function(){
     $(".meter>span").css({"width": score+"%"});
     var rain_count=0;
     startRain();
-    $("#water").css({"bottom":"-20px"});
+    $("#water").css({"bottom":"-110px"});
 };
 
 //Creating reactive divs and content
@@ -17,14 +17,41 @@ function happySky(){
   $("#canvas").addClass("hopeful");
 }
 
-
 function createFox(event){
   $("#fox").removeClass("fox-out");
+  $("#fox").addClass("fox-jump");
 }
 
 function removeFox(event){
   $("#fox").addClass("fox-out");
 }
+
+function createTrees(event){
+  $("#trees1").removeClass("trees-out");
+}
+
+function removeTree(event){
+    $("#trees1").addClass("trees-out");
+  // })
+}
+
+function createMoreTrees(event){
+  $("#trees2").removeClass("trees-out");
+}
+
+function removeMoreTrees(event){
+    $("#trees2").addClass("trees-out");
+  }
+
+
+function createEvenMoreTrees(event){
+    $("#trees3").removeClass("trees-out");
+}
+
+function removeEvenMoreTrees(event){
+    $("#trees3").addClass("trees-out");
+}
+
 
 function flyingEagle(event){
   $("#eagle").removeClass("eagle-out");
@@ -39,58 +66,14 @@ function singleEagle(event){
 }
 
 function createEagle(event){
-  $("#eagle-creation").html('<img id="eagle" src="images/eagle.png" class="eagle-out"">');
+  $("#eagle-creation").html('<img id="eagle" src="images/eagle.png" class="eagle-out">');
 }
 
 function removeEagle(event){
   $("#eagle").fadeOut(1500,function(){
-    $("#eagle").remove();
+    $("#eagle").removeClass();
   })
 }
-
-function createTrees(event){
-  $("#trees1-creation").html('<img id="trees1" src="images/tree.png">');
-}
-
-function removeTree(event){
-  $("#trees1").fadeOut(1500,function(){
-    $("#trees1").remove();
-  })
-}
-
-function createMoreTrees(event){
-  $("#trees2-creation").html('<img id="trees2" src="images/trees-group1.png">');
-}
-
-function removeMoreTrees(event){
-  $("#trees2").fadeOut(1500, function(){
-    $("#trees2").remove();
-  })
-}
-
-function createEvenMoreTrees(event){
-  $("#trees3-creation").html('<img id="trees3" src="images/trees-group2.png">');
-}
-
-function removeEvenMoreTrees(event){
-  $("#trees3").fadeOut(1500, function(){
-    $("#trees3").remove();
-  })
-}
-
-//Raising water level
-// var waterHeight = -185;
-//How do I set ths to the style and not just the arbitrary number?
-// var waterImg = document.getElementById("water");
-// function raiseWater(event){
-//   waterHeight = waterHeight+5;
-//   $("#water").css({"bottom":waterHeight+"px"});
-// }
-//
-// function lowerWater(event){
-//   waterHeight = waterHeight-5;
-//   $("#water").css({"bottom":waterHeight+"px"});
-//   }
 
 //RAIN
 
@@ -274,13 +257,13 @@ $("input").on("click",function(){
   }
 
   if(score>=70){
-    $("#water").css({"bottom":"-160px"});
+    $("#water").css({"bottom":"-190px"});
   } else if (score>=50){
-    $("#water").css({"bottom":"-120px"});
+    $("#water").css({"bottom":"-160px"});
   } else if (score>=30){
-    $("#water").css({"bottom":"-60px"});
+    $("#water").css({"bottom":"-140px"});
   } else if (score>=10){
-    $("#water").css({"bottom":"-20px"});
+    $("#water").css({"bottom":"-110px"});
   }
 
     if (score>=70){
@@ -289,3 +272,24 @@ $("input").on("click",function(){
       singleEagle();
     }
 })
+
+
+
+//OLD CODE
+// function createTrees(event){
+//   $("#trees1-creation").html('<img id="trees1" src="images/tree.png" class="trees-visible">');
+// }
+
+//Raising water level
+// var waterHeight = -185;
+//How do I set ths to the style and not just the arbitrary number?
+// var waterImg = document.getElementById("water");
+// function raiseWater(event){
+//   waterHeight = waterHeight+5;
+//   $("#water").css({"bottom":waterHeight+"px"});
+// }
+//
+// function lowerWater(event){
+//   waterHeight = waterHeight-5;
+//   $("#water").css({"bottom":waterHeight+"px"});
+//   }
