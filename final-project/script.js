@@ -1,10 +1,51 @@
+window.onload = function(){
+    score=0;
+    $(".meter>span").css({"width": score+"%"});
+    var rain_count=0;
+    startRain();
+    $("#water").css({"bottom":"-20px"});
+};
+
 //Creating reactive divs and content
+function sadSky(){
+  $("#canvas").addClass("bleak");
+  $("#canvas").removeClass("hopeful");
+}
+
+function happySky(){
+  $("#canvas").removeClass("bleak");
+  $("#canvas").addClass("hopeful");
+}
+
+
 function createFox(event){
   $("#fox").removeClass("fox-out");
 }
 
 function removeFox(event){
-  $("#fox").addClass("fox-out")
+  $("#fox").addClass("fox-out");
+}
+
+function flyingEagle(event){
+  $("#eagle").removeClass("eagle-out");
+  $("#eagle").removeClass("eagle-none");
+  $("#eagle").addClass("eagle-flying");
+}
+
+function singleEagle(event){
+  $("#eagle").removeClass("eagle-flying");
+  $("#eagle").removeClass("eagle-none");
+  $("#eagle").addClass("eagle-out")
+}
+
+function createEagle(event){
+  $("#eagle-creation").html('<img id="eagle" src="images/eagle.png" class="eagle-out"">');
+}
+
+function removeEagle(event){
+  $("#eagle").fadeOut(1500,function(){
+    $("#eagle").remove();
+  })
 }
 
 function createTrees(event){
@@ -21,33 +62,42 @@ function createMoreTrees(event){
   $("#trees2-creation").html('<img id="trees2" src="images/trees-group1.png">');
 }
 
-function createEvenMoreTrees(event){
-  $("#trees3-creation").html('<img id="trees3" src="images/trees-group2.png">');
-}
-
 function removeMoreTrees(event){
   $("#trees2").fadeOut(1500, function(){
     $("#trees2").remove();
   })
 }
 
-//Raising water level
-var waterHeight = -185; //How do I set ths to the style and not just the arbitrary number?
-var waterImg = document.getElementById("water");
-function raiseWater(event){
-  waterHeight = waterHeight+5;
-  $("#water").css({"bottom":waterHeight+"px"});
+function createEvenMoreTrees(event){
+  $("#trees3-creation").html('<img id="trees3" src="images/trees-group2.png">');
 }
 
-function lowerWater(event){
-  waterHeight = waterHeight-5;
-  $("#water").css({"bottom":waterHeight+"px"});
-  }
+function removeEvenMoreTrees(event){
+  $("#trees3").fadeOut(1500, function(){
+    $("#trees3").remove();
+  })
+}
+
+//Raising water level
+// var waterHeight = -185;
+//How do I set ths to the style and not just the arbitrary number?
+// var waterImg = document.getElementById("water");
+// function raiseWater(event){
+//   waterHeight = waterHeight+5;
+//   $("#water").css({"bottom":waterHeight+"px"});
+// }
+//
+// function lowerWater(event){
+//   waterHeight = waterHeight-5;
+//   $("#water").css({"bottom":waterHeight+"px"});
+//   }
 
 //RAIN
 
 //Variable sets sky color
-var skyColor = "#7dd3e2";
+// var skyColor = "#7dd3e2";
+var skyColor = "#aabe7e";
+
 
 var canvas = document.getElementById("canvas");//Canvas
 var ctx = canvas.getContext("2d");//It provides the 2D rendering context for the drawing surface
@@ -64,7 +114,7 @@ canvas.width = width;
 canvas.height = height;
 
 //Setting variable names for rain count and drops (which is an array)
-var rain_count = 50;
+var rain_count;
 var rain_drops = [];
 
 //This function controls the number of raindrops, increasing them till they match the rain count set
@@ -128,8 +178,8 @@ var nQuestions = 5;
 var score;
 var percent;
 var progressBar = document.querySelector(".meter");
-minScore=50;
-maxScore=180;
+minScore=45;
+maxScore=150;
 
 $("input").on("click",function(){
   updateScore();
@@ -176,36 +226,66 @@ function percentageWidth(score){
 
 //Setting what appears and disappears
 $("input").on("click",function(){
-    if (score>=80) {
-        startRain();
-    } else {
-        stopRain();
-    }
+
+  if(score>=10){
+      skyColor = "#7dd3e2";
+  } else {
+      skyColor = "#aabe7e";
+  }
+
+  if(score>=30){
+    createTrees();
+  } else {
+    removeTree();
+  }
+
+  if(score>=50){
+    createMoreTrees();
+  } else {
+    removeMoreTrees();
+  }
+
+  if(score>=50){
+    createEagle();
+  } else {
+    removeEagle();
+  }
+
+  if (score>=70){
+    createEvenMoreTrees();
+  } else{
+    removeEvenMoreTrees();
+  }
+
+  if (score>=90){
+    rain_count=100;
+  } else if (score>=70){
+    rain_count=60;
+  } else if (score>=50){
+    rain_count=30;
+  } else{
+    rain_count=0;
+  }
+
+  if (score>=75){
+    createFox();
+  } else{
+    removeFox();
+  }
+
+  if(score>=70){
+    $("#water").css({"bottom":"-160px"});
+  } else if (score>=50){
+    $("#water").css({"bottom":"-120px"});
+  } else if (score>=30){
+    $("#water").css({"bottom":"-60px"});
+  } else if (score>=10){
+    $("#water").css({"bottom":"-20px"});
+  }
 
     if (score>=70){
-      createFox();
-      createEvenMoreTrees();
-    } else{
-      removeFox();
-    }
-
-    if (score>=60){
-      createMoreTrees();
-    } else {
-      removeMoreTrees();
-    }
-
-    if(score>=50){
-      createTrees();
-    } else {
-      removeTree();
-    }
-
-    if(score>=80){
-      $("#water").css({"bottom":"-175px"});
-    } else if (score>=60){
-      $("#water").css({"bottom":"-170px"});
-    } else {
-      $("#water").css({"bottom":"-165px"});
+      flyingEagle();
+    } else if (score>=40){
+      singleEagle();
     }
 })
