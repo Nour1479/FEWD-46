@@ -171,7 +171,6 @@ function updateScore() {
   for (var i=0; i<nQuestions; i++) {
     newScore += getCheckedValue("question"+i);//New score is increase by value returned by the function
   }
-
   //Update score for each iteration
   score = Math.round(((newScore - minScore) / (maxScore - minScore)) * 100);
   return score;
@@ -190,7 +189,7 @@ function getCheckedValue(radioName){
 
 function percentageWidth(score){
   var statusBarValue = document.querySelector("progress-bar");
-  percent = (score / nQuestions)*100;
+  // percent = (score / nQuestions)*100;
   $(".meter>span").css({"width": score+"%"});
 }
 // End of calculation segment
@@ -231,7 +230,7 @@ $("input").on("click",function(){
   }
 
   if (score>=90){
-    rain_count=100;
+    rain_count=130;
   } else if (score>=70){
     rain_count=60;
   } else if (score>=50){

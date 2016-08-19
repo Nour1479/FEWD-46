@@ -5,6 +5,7 @@
 #questions-right{
   width:50%;
   float:right;
+  margin-top: -11px;
 }
 
 #questions-left{
@@ -12,6 +13,9 @@
   float:left;
 }
 
+#special{
+  margin-top:30px;
+}
 
 .box{
   position: absolute;
